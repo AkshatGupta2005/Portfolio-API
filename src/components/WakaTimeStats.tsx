@@ -16,11 +16,11 @@ const WakaTimeWeeklyStats = () => {
     const fetchStats = async () => {
       try {
         const response = await fetch(
-          "https://wakatime.com/share/@sleepy_head/5e8e4a9f-e298-4c30-81dd-919466a883d0.json" // Replace with your share URL
+          "https://wakatime.com/share/@sleepy_head/5e8e4a9f-e298-4c30-81dd-919466a883d0.json"
         )
         const data = await response.json()
-        console.log(data);
         const weekData: DayData[] = data.data
+
         const totalSeconds = weekData.reduce(
           (sum, day) => sum + day.grand_total.total_seconds,
           0
@@ -29,36 +29,41 @@ const WakaTimeWeeklyStats = () => {
         const hours = Math.floor(totalSeconds / 3600)
         const minutes = Math.floor((totalSeconds % 3600) / 60)
         setTotalTime(`${hours}h ${minutes}m`)
-        setLoading(false)
       } catch (error) {
         console.error("Failed to fetch WakaTime weekly data:", error)
+      } finally {
+        setLoading(false)
       }
     }
 
     fetchStats()
   }, [])
-  
-  if (loading) {
-    return (
-      <div className="compact-widget coding-widget">
-        <div className="widget-pulse"></div>
-      </div>
-    )
-  }
-  if (!totalTime) return null
+
   return (
-    <div className="compact-widget coding-widget">
-      <div className="widget-header">
-        <div className="status-dot active"></div>
-        <span className="widget-title">Coding Time</span>
+    <div className="spotify-widget">
+      <div className="header">
+        <div
+          className={`status-dot ${
+            loading ? "loading" : totalTime ? "playing" : "offline"
+          }`}
+        ></div>
+        <span className="title">
+          {loading ? "Fetching Coding Stats..." : "Coding Time"}
+        </span>
       </div>
-      <div className="widget-content">
-        <div className="main-stat">
-          <span className="stat-number">{totalTime}</span>
-        </div>
-        <div className="sub-stat">
-          <span className="language-name">Across 7 days</span>
-        </div>
+
+      <div className="content">
+        {totalTime ? (
+          <div className="info">
+            <div className="track">{totalTime}</div>
+            <div className="artist">in last 7 days</div>
+          </div>
+        ) : (
+          <div className="info empty">
+            <div className="track">No data</div>
+            <div className="artist">---</div>
+          </div>
+        )}
       </div>
     </div>
   )

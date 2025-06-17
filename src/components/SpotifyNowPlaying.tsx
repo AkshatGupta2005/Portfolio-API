@@ -36,46 +36,47 @@ const SpotifyNowPlaying = () => {
     }
 
     fetchNowPlaying()
-    const interval = setInterval(fetchNowPlaying, 30000) // Refresh every 30s
+    const interval = setInterval(fetchNowPlaying, 30000)
     return () => clearInterval(interval)
   }, [])
 
-  if (loading) {
-    return (
-      <div className="compact-widget spotify-widget">
-        <div className="widget-pulse"></div>
-      </div>
-    )
-  }
-
-  if (!track || !track.isPlaying) {
-    return (
-      <div className="compact-widget spotify-widget">
-        <div className="widget-header">
-          <div className="status-dot offline"></div>
-          <span className="widget-title">Not Playing</span>
-        </div>
-      </div>
-    )
-  }
-
   return (
-    <div className="compact-widget spotify-widget">
-      <div className="widget-header">
-        <div className="status-dot playing"></div>
-        <span className="widget-title">Now Playing</span>
+    <div className="spotify-widget">
+      <div className="header">
+        <div
+          className={`status-dot ${
+            loading ? "loading" : track?.isPlaying ? "playing" : "offline"
+          }`}
+        ></div>
+        <span className="title">
+          {loading
+            ? "Connecting to Spotify..."
+            : track?.isPlaying
+            ? "Now Playing"
+            : "Not Playing"}
+        </span>
       </div>
-      <div className="widget-content">
-        <div className="track-info">
-          <div className="track-name">{track.name}</div>
-          <div className="track-artist">{track.artist}</div>
-        </div>
-        <div className="music-visualizer">
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </div>
+
+      <div className="content">
+        {track?.isPlaying ? (
+          <>
+            <div className="info">
+              <div className="track">{track.name}</div>
+              <div className="artist">{track.artist}</div>
+            </div>
+            <div className="visualizer">
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+            </div>
+          </>
+        ) : (
+          <div className="info empty">
+            <div className="track">No song playing</div>
+            <div className="artist">---</div>
+          </div>
+        )}
       </div>
     </div>
   )
