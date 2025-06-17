@@ -13,14 +13,31 @@ const SpotifyNowPlaying = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setTimeout(() => {
-      setTrack({
-        name: "Blinding Lights",
-        artist: "The Weeknd",
-        isPlaying: true,
-      })
-      setLoading(false)
-    }, 1200)
+    const fetchNowPlaying = async () => {
+      try {
+        const res = await fetch("/api/now-playing")
+        const data = await res.json()
+
+        if (data.error || !data.title) {
+          setTrack(null)
+        } else {
+          setTrack({
+            name: data.title,
+            artist: data.artist,
+            isPlaying: data.isPlaying,
+          })
+        }
+      } catch (error) {
+        console.error("Error fetching Spotify track:", error)
+        setTrack(null)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchNowPlaying()
+    const interval = setInterval(fetchNowPlaying, 30000) // Refresh every 30s
+    return () => clearInterval(interval)
   }, [])
 
   if (loading) {
@@ -31,7 +48,7 @@ const SpotifyNowPlaying = () => {
     )
   }
 
-  if (!track) {
+  if (!track || !track.isPlaying) {
     return (
       <div className="compact-widget spotify-widget">
         <div className="widget-header">

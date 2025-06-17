@@ -17,8 +17,6 @@ interface Project {
 const Projects = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [activeCategory, setActiveCategory] = useState("All")
-  const sliderRef = useRef<HTMLDivElement>(null)
-
   const projects: Project[] = [
     {
       id: 1,
