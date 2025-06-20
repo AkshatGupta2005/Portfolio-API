@@ -3,10 +3,8 @@
 import type React from "react"
 import { useState } from "react"
 import {
-  FiMail, FiPhone, FiMapPin, FiLinkedin, FiGithub, FiTwitter, FiInstagram,
+  FiMail, FiMapPin, FiLinkedin, FiGithub, FiTwitter,
 } from "react-icons/fi"
-import { FaDiscord, FaTelegramPlane } from "react-icons/fa"
-
 const Connect = () => {
   const [formData, setFormData] = useState({
     name: "",
