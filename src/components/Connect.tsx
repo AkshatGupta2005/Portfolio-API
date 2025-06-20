@@ -1,8 +1,11 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
+import {
+  FiMail, FiPhone, FiMapPin, FiLinkedin, FiGithub, FiTwitter, FiInstagram,
+} from "react-icons/fi"
+import { FaDiscord, FaTelegramPlane } from "react-icons/fa"
 
 const Connect = () => {
   const [formData, setFormData] = useState({
@@ -21,46 +24,35 @@ const Connect = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
     console.log("Form submitted:", formData)
-    // Reset form
     setFormData({ name: "", email: "", subject: "", message: "" })
   }
 
   const contactInfo = [
     {
-      icon: "📧",
+      icon: <FiMail />,
       label: "Email",
-      value: "your@email.com",
-      link: "mailto:your@email.com",
+      value: "akshatguptaip@gmail.com",
+      link: "akshatguptaip@gmail.com",
     },
     {
-      icon: "📱",
-      label: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
-    },
-    {
-      icon: "📍",
+      icon: <FiMapPin />,
       label: "Location",
-      value: "Your City, Country",
+      value: "Bhopal, India",
       link: "#",
     },
     {
-      icon: "💼",
+      icon: <FiLinkedin />,
       label: "LinkedIn",
-      value: "linkedin.com/in/yourprofile",
-      link: "https://linkedin.com/in/yourprofile",
+      value: "linkedin.com/in/akshatguptaip",
+      link: "https://www.linkedin.com/in/akshatguptaip/",
     },
   ]
 
   const socialLinks = [
-    { name: "GitHub", url: "#", icon: "🐱", color: "#333" },
-    { name: "LinkedIn", url: "#", icon: "💼", color: "#0077b5" },
-    { name: "Twitter", url: "#", icon: "🐦", color: "#1da1f2" },
-    { name: "Instagram", url: "#", icon: "📸", color: "#e4405f" },
-    { name: "Discord", url: "#", icon: "🎮", color: "#7289da" },
-    { name: "Telegram", url: "#", icon: "✈️", color: "#0088cc" },
+    { name: "GitHub", url: "https://github.com/AkshatGupta2005", icon: <FiGithub />, color: "#333" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/akshatguptaip/", icon: <FiLinkedin />, color: "#0077b5" },
+    { name: "Twitter", url: "https://x.com/_Gupta_Akshat", icon: <FiTwitter />, color: "#1da1f2" },
   ]
 
   return (
@@ -109,7 +101,7 @@ const Connect = () => {
                     className="social-item"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ "--social-color": social.color } as React.CSSProperties}
+                    style={{ color: social.color }}
                   >
                     <span className="social-icon">{social.icon}</span>
                     <span className="social-name">{social.name}</span>

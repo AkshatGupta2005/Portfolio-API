@@ -1,10 +1,18 @@
 "use client"
 
 import { useState } from "react"
+import {
+  FaReact, FaNodeJs, FaPython, FaGitAlt,
+} from "react-icons/fa"
+import {
+  SiNextdotjs, SiTypescript, SiJavascript, SiExpress, SiMongodb, SiPostgresql,
+  SiArduino, SiEspressif, SiDocker, SiFirebase, SiAmazon,
+  SiFigma, SiTailwindcss, SiBootstrap, SiFramer, SiSolidity,
+} from "react-icons/si"
 
 interface TechItem {
   name: string
-  icon: string
+  Icon: React.ElementType
   category: string
   projects: Array<{ name: string; url: string }>
 }
@@ -13,86 +21,83 @@ const TechStack = () => {
   const [selectedTech, setSelectedTech] = useState<TechItem | null>(null)
 
   const techStack: TechItem[] = [
-    {
-      name: "React",
-      icon: "⚛️",
-      category: "Frontend",
-      projects: [
-        { name: "E-commerce App", url: "#" },
-        { name: "Dashboard UI", url: "#" },
-        { name: "Portfolio Site", url: "#" },
-      ],
-    },
-    {
-      name: "TypeScript",
-      icon: "📘",
-      category: "Language",
-      projects: [
-        { name: "API Gateway", url: "#" },
-        { name: "React Components", url: "#" },
-      ],
-    },
-    {
-      name: "Node.js",
-      icon: "🟢",
-      category: "Backend",
-      projects: [
-        { name: "REST API", url: "#" },
-        { name: "Microservices", url: "#" },
-      ],
-    },
-    {
-      name: "Python",
-      icon: "🐍",
-      category: "Language",
-      projects: [
-        { name: "Data Analysis Tool", url: "#" },
-        { name: "ML Model", url: "#" },
-      ],
-    },
-    {
-      name: "MongoDB",
-      icon: "🍃",
-      category: "Database",
-      projects: [
-        { name: "Social Media App", url: "#" },
-        { name: "Content Management", url: "#" },
-      ],
-    },
-    {
-      name: "Docker",
-      icon: "🐳",
-      category: "DevOps",
-      projects: [
-        { name: "Containerized Apps", url: "#" },
-        { name: "CI/CD Pipeline", url: "#" },
-      ],
-    },
-    {
-      name: "AWS",
-      icon: "☁️",
-      category: "Cloud",
-      projects: [
-        { name: "Serverless Functions", url: "#" },
-        { name: "Cloud Infrastructure", url: "#" },
-      ],
-    },
-    {
-      name: "Git",
-      icon: "📚",
-      category: "Tools",
-      projects: [
-        { name: "Version Control", url: "#" },
-        { name: "Collaboration", url: "#" },
-      ],
-    },
+    { name: "React", Icon: FaReact, category: "Frontend", projects: [
+      { name: "Path2Hack", url: "https://path2hack.vercel.app" },
+      { name: "Readdy Blog", url: "https://readdyblog.onrender.com" },
+      { name: "Gita Website", url: "https://gita-by-madhav.onrender.com" },
+    ]},
+    { name: "Next.js", Icon: SiNextdotjs, category: "Frontend", projects: [
+      { name: "Portfolio Site", url: "#" },
+    ]},
+    { name: "TypeScript", Icon: SiTypescript, category: "Language", projects: [
+      { name: "API Gateway", url: "#" },
+      { name: "Smart Farm App", url: "#" },
+    ]},
+    { name: "JavaScript", Icon: SiJavascript, category: "Language", projects: [
+      { name: "Interactive UI Projects", url: "#" },
+    ]},
+    { name: "Node.js", Icon: FaNodeJs, category: "Backend", projects: [
+      { name: "Path2Hack Backend", url: "https://github.com/AkshatGupta2005/Path2Hack-Backend" },
+      { name: "Smart Farm System", url: "#" },
+    ]},
+    { name: "Express.js", Icon: SiExpress, category: "Backend", projects: [
+      { name: "Path2Hack API", url: "https://github.com/AkshatGupta2005/Path2Hack-Backend" },
+    ]},
+    { name: "Python", Icon: FaPython, category: "Language", projects: [
+      { name: "ML Plant Detection", url: "#" },
+      { name: "Book Review Chatbot", url: "#" },
+    ]},
+    { name: "MongoDB", Icon: SiMongodb, category: "Database", projects: [
+      { name: "Path2Hack CMS", url: "#" },
+    ]},
+    { name: "PostgreSQL", Icon: SiPostgresql, category: "Database", projects: [
+      { name: "Admin Panel (GDG)", url: "#" },
+    ]},
+    { name: "Arduino", Icon: SiArduino, category: "IoT", projects: [
+      { name: "Smart Environment System", url: "#" },
+    ]},
+    { name: "ESP32", Icon: SiEspressif, category: "IoT", projects: [
+      { name: "Sensor Farm Controller", url: "#" },
+    ]},
+    { name: "Docker", Icon: SiDocker, category: "DevOps", projects: [
+      { name: "Containerized Apps", url: "#" },
+    ]},
+    { name: "AWS", Icon: SiAmazon, category: "Cloud", projects: [
+      { name: "Serverless Functions", url: "#" },
+    ]},
+    { name: "Firebase", Icon: SiFirebase, category: "Backend", projects: [
+      { name: "Real-time Chat App", url: "#" },
+    ]},
+    { name: "Git", Icon: FaGitAlt, category: "Tools", projects: [
+      { name: "Open Source Contributions", url: "https://github.com/AkshatGupta2005" },
+    ]},
+    { name: "Figma", Icon: SiFigma, category: "Design", projects: [
+      { name: "UI Wireframes", url: "#" },
+    ]},
+    { name: "Tailwind CSS", Icon: SiTailwindcss, category: "Frontend", projects: [
+      { name: "Readdy Blog UI", url: "#" },
+    ]},
+    { name: "Bootstrap", Icon: SiBootstrap, category: "Frontend", projects: [
+      { name: "Gita Website", url: "#" },
+    ]},
+    { name: "Framer Motion", Icon: SiFramer, category: "Frontend", projects: [
+      { name: "Animated Portfolio", url: "#" },
+    ]},
+    { name: "Solidity", Icon: SiSolidity, category: "Web3", projects: [
+      { name: "Smart Contract DApp", url: "#" },
+    ]},
   ]
 
-  const categories = ["All", "Frontend", "Backend", "Language", "Database", "DevOps", "Cloud", "Tools"]
+  const categories = [
+    "All", "Frontend", "Backend", "Language", "Database", "IoT",
+    "DevOps", "Cloud", "Web3", "Design", "Tools"
+  ]
+
   const [activeCategory, setActiveCategory] = useState("All")
 
-  const filteredTech =
-    activeCategory === "All" ? techStack : techStack.filter((tech) => tech.category === activeCategory)
+  const filteredTech = activeCategory === "All"
+    ? techStack
+    : techStack.filter((tech) => tech.category === activeCategory)
 
   return (
     <section id="techstack" className="section techstack-section">
@@ -103,23 +108,23 @@ const TechStack = () => {
         </h2>
 
         <div className="category-filters">
-          {categories.map((category) => (
+          {categories.map((cat) => (
             <button
-              key={category}
-              className={`filter-btn ${activeCategory === category ? "active" : ""}`}
-              onClick={() => setActiveCategory(category)}
+              key={cat}
+              className={`filter-btn ${activeCategory === cat ? "active" : ""}`}
+              onClick={() => setActiveCategory(cat)}
             >
-              {category}
+              {cat}
             </button>
           ))}
         </div>
 
         <div className="tech-grid">
-          {filteredTech.map((tech, index) => (
-            <div key={index} className="tech-item" onClick={() => setSelectedTech(tech)}>
-              <div className="tech-icon">{tech.icon}</div>
-              <div className="tech-name">{tech.name}</div>
-              <div className="tech-category">{tech.category}</div>
+          {filteredTech.map(({ name, Icon, category }) => (
+            <div key={name} className="tech-item" onClick={() => setSelectedTech(techStack.find(t => t.name === name) || null)}>
+              <Icon className="tech-icon-svg" size={40} />
+              <div className="tech-name">{name}</div>
+              <div className="tech-category">{category}</div>
             </div>
           ))}
         </div>
@@ -127,19 +132,17 @@ const TechStack = () => {
         {selectedTech && (
           <div className="tech-modal" onClick={() => setSelectedTech(null)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={() => setSelectedTech(null)}>
-                ×
-              </button>
+              <button className="modal-close" onClick={() => setSelectedTech(null)}>×</button>
               <div className="modal-header">
-                <span className="modal-icon">{selectedTech.icon}</span>
+                <selectedTech.Icon className="modal-icon-svg" size={48} />
                 <h3>{selectedTech.name}</h3>
               </div>
               <div className="modal-body">
                 <h4>Projects using {selectedTech.name}:</h4>
                 <div className="project-links">
-                  {selectedTech.projects.map((project, index) => (
+                  {selectedTech.projects.map((project, i) => (
                     <a
-                      key={index}
+                      key={i}
                       href={project.url}
                       className="project-link"
                       target="_blank"

@@ -14,164 +14,85 @@ interface EducationItem {
   achievements: string[]
   courses: string[]
   image: string
-  type: "degree" | "certification" | "bootcamp" | "course"
   status: "completed" | "in-progress" | "upcoming"
 }
 
 const Education = () => {
   const [selectedItem, setSelectedItem] = useState<EducationItem | null>(null)
-  const [activeFilter, setActiveFilter] = useState("all")
 
   const educationData: EducationItem[] = [
     {
       id: 1,
-      degree: "Master of Science in Computer Science",
-      institution: "Stanford University",
-      location: "Stanford, CA",
-      startDate: "2022",
-      endDate: "2024",
-      gpa: "3.9/4.0",
+      degree: "Bachelor of Technology in Computer Science & Engineering",
+      institution: "Lakshmi Narain College of Technology & Science",
+      location: "Bhopal, Madhya Pradesh",
+      startDate: "2023",
+      endDate: "2027",
       description:
-        "Specialized in Artificial Intelligence and Machine Learning with focus on deep learning, natural language processing, and computer vision. Conducted research on neural network optimization.",
+        "Pursuing core concepts in computer science including data structures, algorithms, web development, and IoT systems. Active participant in Google Developer Groups and Raahat Club, contributing to both technical and social impact initiatives.",
       achievements: [
-        "Dean's List for 4 consecutive semesters",
-        "Research Assistant in AI Lab",
-        "Published 2 papers in ML conferences",
-        "Teaching Assistant for CS229 Machine Learning",
-      ],
-      courses: [
-        "Advanced Machine Learning",
-        "Deep Learning",
-        "Computer Vision",
-        "Natural Language Processing",
-        "Distributed Systems",
-        "Algorithm Design",
-      ],
-      image: "/placeholder.svg?height=300&width=400",
-      type: "degree",
-      status: "completed",
-    },
-    {
-      id: 2,
-      degree: "Bachelor of Science in Software Engineering",
-      institution: "University of California, Berkeley",
-      location: "Berkeley, CA",
-      startDate: "2018",
-      endDate: "2022",
-      gpa: "3.8/4.0",
-      description:
-        "Comprehensive program covering software development, system design, and engineering principles. Strong foundation in computer science fundamentals and practical software development.",
-      achievements: [
-        "Summa Cum Laude graduate",
-        "President of Computer Science Club",
-        "Winner of Berkeley Hackathon 2021",
-        "Internship at Google (Summer 2021)",
+        "Volunteer Coordinator and Student Mentor at GDG on Campus",
+        "Teaching Team Member at Raahat Club",
+        "Built multiple MERN stack and Arduino-based projects",
+        "Led team at SIH and various hackathons",
       ],
       courses: [
         "Data Structures & Algorithms",
-        "Software Engineering",
-        "Database Systems",
         "Operating Systems",
-        "Web Development",
-        "Mobile App Development",
+        "DBMS",
+        "Digital Systems",
+        "Programming",
       ],
-      image: "/placeholder.svg?height=300&width=400",
-      type: "degree",
+      image: "/lncts.webp",
+      status: "in-progress",
+    },
+    {
+      id: 2,
+      degree: "Senior Secondary (Class 12th, PCM)",
+      institution: "Sanskar Academy H.S. School",
+      location: "Sagore, Madhya Pradesh",
+      startDate: "2021",
+      endDate: "2023",
+      description:
+        "Focused on core science subjects including Physics, Chemistry, and Mathematics. Participated in cultural events including music and sports.",
+      achievements: [
+        "Participated in science exhibitions",
+        "Active member of cultural and academic teams",
+      ],
+      courses: [
+        "Physics",
+        "Chemistry",
+        "Mathematics",
+        "Hindi",
+        "English Core",
+      ],
+      image: "/sanskar.jpeg",
       status: "completed",
     },
     {
       id: 3,
-      degree: "Full Stack Web Development Bootcamp",
-      institution: "Lambda School",
-      location: "Remote",
-      startDate: "2021",
+      degree: "High School (10th Grade)",
+      institution: "Alpine Academy",
+      location: "Indore, Madhya Pradesh",
+      startDate: "2015" ,
       endDate: "2021",
       description:
-        "Intensive 6-month program focused on modern web development technologies including React, Node.js, and cloud deployment. Built 15+ full-stack applications.",
+        "Built strong foundational knowledge in science, mathematics, and discipline. Actively involved in co-curriculars such as drama, music, and dance.",
       achievements: [
-        "Top 5% of cohort",
-        "Team Lead for final capstone project",
-        "Mentored 10+ junior students",
-        "100% job placement rate",
+        "Participated in various school competitions",
+        "Trained in music and sports",
       ],
       courses: [
-        "React & Redux",
-        "Node.js & Express",
-        "Python & Django",
-        "PostgreSQL & MongoDB",
-        "AWS Deployment",
-        "Agile Development",
+        "Science",
+        "Mathematics",
+        "Social Science",
+        "English",
+        "Hindi",
       ],
-      image: "/placeholder.svg?height=300&width=400",
-      type: "bootcamp",
+      image: "/alpine.jpeg",
       status: "completed",
     },
-    {
-      id: 4,
-      degree: "AWS Solutions Architect Professional",
-      institution: "Amazon Web Services",
-      location: "Online",
-      startDate: "2023",
-      endDate: "2023",
-      description:
-        "Advanced certification covering complex AWS architectures, security, and optimization. Demonstrates expertise in designing distributed systems on AWS.",
-      achievements: [
-        "Scored 920/1000 on exam",
-        "Completed 40+ hands-on labs",
-        "Built 5 production-ready architectures",
-        "Mentored team on AWS best practices",
-      ],
-      courses: [
-        "Advanced Networking",
-        "Security & Compliance",
-        "Cost Optimization",
-        "Disaster Recovery",
-        "Microservices Architecture",
-        "DevOps Integration",
-      ],
-      image: "/placeholder.svg?height=300&width=400",
-      type: "certification",
-      status: "completed",
-    },
-    {
-      id: 5,
-      degree: "Machine Learning Specialization",
-      institution: "Coursera (Stanford University)",
-      location: "Online",
-      startDate: "2023",
-      endDate: "2024",
-      description:
-        "Comprehensive specialization covering machine learning algorithms, deep learning, and practical applications. Hands-on projects with real-world datasets.",
-      achievements: [
-        "Completed with honors",
-        "Built 8 ML projects",
-        "Kaggle competition top 10%",
-        "Peer mentor for 20+ students",
-      ],
-      courses: [
-        "Supervised Learning",
-        "Unsupervised Learning",
-        "Neural Networks",
-        "Practical ML Projects",
-        "ML System Design",
-        "Ethics in AI",
-      ],
-      image: "/placeholder.svg?height=300&width=400",
-      type: "course",
-      status: "in-progress",
-    },
   ]
-
-  const filters = [
-    { id: "all", label: "All", icon: "🎓" },
-    { id: "degree", label: "Degrees", icon: "🏛️" },
-    { id: "certification", label: "Certifications", icon: "🏆" },
-    { id: "bootcamp", label: "Bootcamps", icon: "⚡" },
-    { id: "course", label: "Courses", icon: "📚" },
-  ]
-
-  const filteredEducation =
-    activeFilter === "all" ? educationData : educationData.filter((item) => item.type === activeFilter)
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -185,20 +106,6 @@ const Education = () => {
         return "#00d4ff"
     }
   }
-
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case "completed":
-        return "✅"
-      case "in-progress":
-        return "🔄"
-      case "upcoming":
-        return "⏳"
-      default:
-        return "📚"
-    }
-  }
-
   return (
     <section id="education" className="section education-section">
       <div className="container">
@@ -207,25 +114,10 @@ const Education = () => {
           <span className="title-line"></span>
         </h2>
 
-        {/* Filter Buttons */}
-        <div className="education-filters">
-          {filters.map((filter) => (
-            <button
-              key={filter.id}
-              className={`filter-btn ${activeFilter === filter.id ? "active" : ""}`}
-              onClick={() => setActiveFilter(filter.id)}
-            >
-              <span className="filter-icon">{filter.icon}</span>
-              <span className="filter-label">{filter.label}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* Timeline */}
         <div className="education-timeline">
           <div className="timeline-line"></div>
 
-          {filteredEducation.map((item, index) => (
+          {educationData.map((item, index) => (
             <div
               key={item.id}
               className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
@@ -233,7 +125,6 @@ const Education = () => {
             >
               <div className="timeline-marker">
                 <div className="marker-dot" style={{ backgroundColor: getStatusColor(item.status) }}>
-                  <span className="marker-icon">{getStatusIcon(item.status)}</span>
                 </div>
               </div>
 
@@ -260,13 +151,6 @@ const Education = () => {
                       <h3 className="degree-title">{item.degree}</h3>
                       <p className="institution-name">{item.institution}</p>
                       <p className="location">{item.location}</p>
-
-                      {item.gpa && (
-                        <div className="gpa">
-                          <span className="gpa-label">GPA:</span>
-                          <span className="gpa-value">{item.gpa}</span>
-                        </div>
-                      )}
                     </div>
                   </div>
 
@@ -291,13 +175,11 @@ const Education = () => {
           ))}
         </div>
 
-        {/* Detailed Modal */}
+        {/* Modal */}
         {selectedItem && (
           <div className="education-modal" onClick={() => setSelectedItem(null)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={() => setSelectedItem(null)}>
-                ×
-              </button>
+              <button className="modal-close" onClick={() => setSelectedItem(null)}>×</button>
 
               <div className="modal-header">
                 <div className="modal-image">
@@ -317,13 +199,6 @@ const Education = () => {
                   <h2 className="modal-degree">{selectedItem.degree}</h2>
                   <h3 className="modal-institution">{selectedItem.institution}</h3>
                   <p className="modal-location">{selectedItem.location}</p>
-
-                  {selectedItem.gpa && (
-                    <div className="modal-gpa">
-                      <span className="gpa-label">GPA:</span>
-                      <span className="gpa-value">{selectedItem.gpa}</span>
-                    </div>
-                  )}
                 </div>
               </div>
 

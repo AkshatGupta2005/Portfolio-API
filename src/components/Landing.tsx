@@ -27,10 +27,10 @@ const Landing = () => {
   }, [])
 
   const socialLinks = [
-    { name: "LinkedIn", url: "#", icon: "💼", color: "#0077b5" },
-    { name: "GitHub", url: "#", icon: "🐱", color: "#333" },
-    { name: "Twitter", url: "#", icon: "🐦", color: "#1da1f2" },
-    { name: "Email", url: "mailto:your@email.com", icon: "📧", color: "#ea4335" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/akshatguptaip/", icon: "./icons/linkedin.svg", color: "#0077b5" },
+    { name: "GitHub", url: "https://github.com/AkshatGupta2005", icon: "./icons/github.svg", color: "#0077b5" },
+    { name: "X", url: "https://x.com/_Gupta_Akshat", icon: "./icons/twitter-x.svg", color: "#0077b5" },
+    { name: "Email", url: "mailto:akshatguptaip@gmail.com", icon: "./icons/envelope.svg", color: "#0077b5" },
   ]
 
   const downloadResume = () => {
@@ -51,12 +51,6 @@ const Landing = () => {
       ></div>
 
       <div className="landing-container">
-        <div className="floating-shapes">
-          <div className="shape shape-1"></div>
-          <div className="shape shape-2"></div>
-          <div className="shape shape-3"></div>
-        </div>
-
         <div className="hero-grid">
           {/* Left: Profile */}
           <div className="profile-section">
@@ -96,15 +90,14 @@ const Landing = () => {
                   rel="noopener noreferrer"
                   style={{ "--social-color": link.color } as React.CSSProperties}
                 >
-                  <span className="social-icon">{link.icon}</span>
+                  <span className="social-icon"><img src={link.icon} alt={link.name} className="Social-icon-img"/></span>
                 </a>
               ))}
             </div>
 
             <button className="cta-button" onClick={downloadResume}>
               <span className="btn-content">
-                <span className="btn-text">Resume</span>
-                <span className="btn-icon">📄</span>
+                <span className="btn-text">Download Resume</span>
               </span>
             </button>
           </div>
