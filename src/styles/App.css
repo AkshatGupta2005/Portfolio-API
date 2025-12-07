@@ -1,0 +1,615 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background-color: #F2F2F7;
+  color: #1E1E1E;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+
+.portfolio-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Top Row - Profile + Nav/Connect */
+.top-row {
+  display: flex;
+  gap: 8px;
+}
+
+.profile-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.profile-wrapper .profile-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.top-right-stack {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Main Grid Layout */
+.main-grid {
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto auto;
+  grid-template-areas:
+    "whoami education"
+    "skills education"
+    "whatido symmetry";
+  gap: 8px;
+}
+
+.whoami-card { grid-area: whoami; }
+.education-card { grid-area: education; }
+.skills-card { grid-area: skills; }
+.whatido-card { grid-area: whatido; }
+.symmetry-box { grid-area: symmetry; }    
+
+/* Medium screens - adjust for 700-950px */
+@media (max-width: 950px) and (min-width: 769px) {
+  .top-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .profile-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .profile-wrapper .profile-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .profile-image-container {
+    width: 40% !important;
+  }
+}
+
+/* Responsive - stack on mobile */
+@media (max-width: 768px) {
+  .top-row {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-wrapper {
+    order: 2;
+    position: relative;
+    height: auto;
+  }
+  
+  .profile-wrapper .profile-card {
+    position: relative;
+  }
+  
+  .top-right-stack {
+    order: 1;
+    display: contents;
+  }
+  
+  .top-right-stack .nav-card {
+    order: 1;
+  }
+  
+  .top-right-stack .connect-card {
+    order: 3;
+  }
+  
+  .main-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "whoami"
+      "education"
+      "skills"
+      "whatido";
+  }
+  
+  .symmetry-box {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+  
+  .profile-card {
+    flex-direction: column;
+    padding: 8px !important;
+    gap: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+    align-items: stretch;
+  }
+  
+  .profile-image-container {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 12px !important;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+  }
+  
+  .profile-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    border-radius: 12px !important;
+    display: block;
+  }
+  
+  .profile-info {
+    padding: 0 4px !important;
+    flex-shrink: 0;
+    width: 100% !important;
+  }
+  
+  .profile-info h1 {
+    font-size: 24px !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .profile-bio {
+    margin-bottom: 8px !important;
+    font-size: 16px !important;
+    line-height: 1.1 !important;
+  }
+  
+  .profile-location {
+    margin-top: 0px !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+  }
+  
+  .card.profile-card {
+    overflow: visible !important;
+  }
+  
+  /* Smaller fonts for other cards on mobile */
+  .nav-card {
+    padding: 8px !important;
+  }
+  
+  .logo-container {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .logo-img {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  
+  .nav-item {
+    font-size: 16px !important;
+    padding: 8px !important;
+  }
+  
+  .whoami-card h2,
+  .connect-card h2,
+  .education-card h2,
+  .skills-card h2,
+  .whatido-card h2 {
+    font-size: 16px !important;
+  }
+  .connect-btn {
+    padding: 8px !important;
+    font-size: 16px !important;
+  } 
+  .who-am-i-text {
+    font-size: 16px !important;
+    line-height: 1.1 !important;
+  }
+  
+  .edu-item {
+    padding: 8px !important;
+  }
+  
+  .edu-header {
+    font-size: 16px !important;
+  }
+  
+  .edu-degree,
+  .edu-sub {
+    font-size: 16px !important;
+  }
+  
+  .skill-tag {
+    padding: 8px !important;
+    font-size: 16px !important;
+  }
+  
+  .project-btn {
+    padding: 8px !important;
+    font-size: 16px !important;
+  }
+  .footer {
+    padding: 12px !important;
+    font-size: 16px !important;
+  }
+  .footer-cta {
+    font-size: 16px !important;
+  }
+}
+
+/* Common Card Styles */
+.card {
+  background: #FFFFFF;
+  border: 1px solid #8E8E93;
+  border-radius: 12px;
+  padding: 8px;
+  overflow: hidden;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+p {
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+/* Profile Card */
+.profile-card {
+  display: flex;
+  gap: 16px;
+  padding: 10px;
+  overflow: hidden;
+  align-items: stretch;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.profile-image-container {
+  width: 45%;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 0;
+  overflow: hidden;
+  justify-content: flex-start;
+  gap: 4px;
+}
+
+.profile-info h1 {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.profile-bio {
+  color: #8E8E93;
+  font-size: 24px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.profile-bio strong {
+  color: #1E1E1E;
+  font-weight: 700;
+}
+
+.profile-location {
+  font-size: 24px;
+  color: #1E1E1E;
+  margin-top: auto;
+  line-height: 1;
+  font-weight: 500;
+}
+
+/* Nav Card */
+.nav-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+}
+
+.logo-container {
+  width: 48px;
+  height: 48px;
+  background: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-left: 10px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #1E1E1E;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 12px 24px;
+}
+
+.nav-item.active {
+  background: #000000;
+  color: #FFFFFF;
+  border-radius: 8px;
+}
+
+/* Connect Card */
+.connect-card {
+  padding: 16px;
+}
+
+.connect-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.connect-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.connect-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: #F2F2F7;
+  border: 1px solid #8E8E93;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #1E1E1E;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.connect-btn:hover {
+  background: #d1d5db;
+}
+
+.connect-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Who Am I */
+.whoami-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.whoami-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.who-am-i-text {
+  text-align: justify;
+  font-size: 24px;
+  line-height: auto;
+  word-spacing: auto;
+  flex: 1;
+}
+
+.who-am-i-text span {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Where I Learned (Education) */
+.education-card {
+  padding: 16px 18px;
+}
+
+.education-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edu-item {
+  background: #F2F2F7;
+  border: 1px solid #8E8E93;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.edu-header {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.edu-degree {
+  font-weight: 400;
+  font-size: 24px;
+  color: #1E1E1E;
+  text-align: end;
+}
+
+.edu-sub {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+  color: #1E1E1E;
+  margin-top: 2px;
+}
+
+/* Skills */
+.skills-card {
+  padding: 16px;
+}
+
+.skills-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.skill-tag {
+  background: #F2F2F7;
+  border: 1px solid #1E1E1E;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.skill-tag.wide {
+  grid-column: span 2;
+}
+
+/* What I Do (Projects) */
+.whatido-card {
+  padding: 16px 18px;
+}
+
+.whatido-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-btn {
+  width: 100%;
+  background: #F2F2F7;
+  border: 1px solid #1E1E1E;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Symmetry Box */
+.symmetry-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px 18px;
+}
+
+.symmetry-text {
+  font-size:24px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* Footer */
+.footer {
+  background: #F2F2F7;
+  border: 1px solid #1E1E1E;
+  border-radius: 10px;
+  padding: 16px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-cta {
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+
+.footer-cta a {
+  color: #1E1E1E;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footer-credits {
+  font-size: 16px;
+  color: #8E8E93;
+}
+
+/* X icon custom */
+.x-icon {
+  width: 22px;
+  height: 22px;
+}
