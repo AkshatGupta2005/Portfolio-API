@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://akshatgupta.space/</loc>
+    <priority>1.00</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Blogs Page -->
+  <url>
+    <loc>https://akshatgupta.space/blogs</loc>
+    <priority>0.80</priority>
+    <changefreq>daily</changefreq>
+  </url>
+
+  <!-- Portfolio Page -->
+  <url>
+    <loc>https://akshatgupta.space/portfolio</loc>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+</urlset>
