@@ -6,7 +6,8 @@ const NavCard = () => {
       <div className="logo-container">
         <img 
           src="/images/logo.png" 
-          alt="Logo" 
+          alt="Akshat Gupta's portfolio logo" 
+          title="Portfolio Logo"
           className="logo-img"
         />
       </div>
