@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akshatgupta.space/sitemap.xml
+Host: akshatgupta.space
