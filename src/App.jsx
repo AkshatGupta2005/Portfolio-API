@@ -1,42 +1,27 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/App.css';
 
-// Components
-import ProfileCard from './components/ProfileCard';
-import NavCard from './components/NavCard';
-import ConnectCard from './components/ConnectCard';
-import WhoAmICard from './components/WhoAmICard';
-import SkillsCard from './components/SkillsCard';
-import EducationCard from './components/EducationCard';
-import WhatIDoCard from './components/WhatIDoCard';
-import SymmetryBox from './components/SymmetryBox';
-import Footer from './components/Footer';
+// Pages
+import Home from './pages/Home';
+import Posts from './pages/Posts';
+import PostDetail from './pages/PostDetail';
+import Projects from './pages/Projects';
+import ProjectDetail from './pages/ProjectDetail';
+import NotFound from './pages/NotFound';
 
 const App = () => {
   return (
-    <div className="portfolio-container">
-      {/* Top Row - Profile + Nav/Connect */}
-      <div className="top-row">
-        <div className="profile-wrapper">
-          <ProfileCard />
-        </div>
-        <div className="top-right-stack">
-          <NavCard />
-          <ConnectCard />
-        </div>
-      </div>
-
-      {/* Main Grid */}
-      <div className="main-grid">
-        <WhoAmICard />
-        <SkillsCard />
-        <EducationCard />
-        <WhatIDoCard />
-        <SymmetryBox />
-      </div>
-
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/posts" element={<Posts />} />
+        <Route path="/posts/:id" element={<PostDetail />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:id" element={<ProjectDetail />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
